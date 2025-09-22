@@ -15,8 +15,12 @@ module.exports = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault()
 
+        console.debug('login.handleSubmit called')
+
         var username = this.refs.username.value
         var pass = this.refs.pass.value
+
+        console.debug('login credentials', {username: username, pass: pass && pass.length})
 
         auth.login(username, pass, (loggedIn) => {
             if (loggedIn) {
