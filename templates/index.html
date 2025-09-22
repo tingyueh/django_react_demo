@@ -1,12 +1,19 @@
-{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Django React Auth</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app"></div>
+    <script>
+      // Client-side fallback: if the page is loaded at /, redirect to /app/
+      // This ensures the React Router basepath matches where the SPA expects to be mounted.
+      if (window.location.pathname === '/') {
+        window.location.replace('/app/');
+      }
+    </script>
     <script src="{% static 'bundles/main.js' %}"></script>
-</body>
+  </body>
 </html>

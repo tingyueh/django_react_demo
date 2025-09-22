@@ -13,12 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import re_path, include
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from django.views.decorators.csrf import csrf_exempt
 
+# Serve the SPA at the project root and at /app/
 urlpatterns = [
-    url(r'^app/', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
-    url(r'^api/', include('api.urls'))
+    # Root: redirect to /app/ so the React Router path matches
+    re_path(r'^$', RedirectView.as_view(url='/app/', permanent=False)),
+    # Serve the SPA at /app/ (React mounts into #app)
+    re_path(r'^app/', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
+    re_path(r'^api/', include('api.urls')),
 ]
     

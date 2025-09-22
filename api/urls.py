@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.routers import DefaultRouter
@@ -12,5 +12,5 @@ router.register(r'users', UserViewSet)
 urlpatterns = router.urls
 
 urlpatterns += [
-    url(r'^obtain-auth-token/$', csrf_exempt(obtain_auth_token))
+    re_path(r'^obtain-auth-token/$', csrf_exempt(obtain_auth_token)),
 ]

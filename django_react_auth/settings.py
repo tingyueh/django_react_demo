@@ -25,7 +25,7 @@ SECRET_KEY = '@g$7kxw@0uq0k*u^cyga^y6)@#ro@2y6dve+y#=2r3-whw@p*7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,17 +40,20 @@ INSTALLED_APPS = [
     #third-party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     #internal apps
     'api'
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
+    # corsheaders should be high in the middleware order
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware' was removed in Django 2.0
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -135,4 +138,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+# Development CORS: allow all origins while developing front-end locally
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Use BigAutoField by default for new models (Django 3.2+ recommended default)
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
