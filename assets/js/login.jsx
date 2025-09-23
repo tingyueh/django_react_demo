@@ -41,3 +41,9 @@ module.exports = React.createClass({
         )    
     }
 })
+
+// The following lines are not part of the React component and should not be included in the final file.
+// from django.contrib.auth.models import User
+// u = User.objects.create_user('testuser','test@example.com','testpass123')
+// u.save()
+// exit()

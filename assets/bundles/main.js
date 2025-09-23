@@ -27313,8 +27313,59 @@
 	                'button',
 	                { onClick: this.logoutHandler },
 	                'Log out'
-	            )
+	            ),
+	            React.createElement('hr', null),
+	            React.createElement(
+	                'h2',
+	                null,
+	                'Upload CSV / Excel'
+	            ),
+	            React.createElement(
+	                'form',
+	                { onSubmit: this.handleUpload, encType: 'multipart/form-data' },
+	                React.createElement('input', { type: 'file', ref: 'file', accept: '.csv,.xls,.xlsx' }),
+	                React.createElement('input', { type: 'submit', value: 'Upload' })
+	            ),
+	            this.state.uploadMessage ? React.createElement(
+	                'p',
+	                null,
+	                this.state.uploadMessage
+	            ) : null
 	        );
+	    },
+
+	    handleUpload: function (e) {
+	        e.preventDefault();
+	        var fileInput = this.refs.file;
+	        if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+	            this.setState({ uploadMessage: 'Please choose a file to upload.' });
+	            return;
+	        }
+	        var file = fileInput.files[0];
+
+	        var formData = new FormData();
+	        formData.append('file', file);
+
+	        $.ajax({
+	            url: '/api/upload-file/',
+	            type: 'POST',
+	            data: formData,
+	            processData: false,
+	            contentType: false,
+	            headers: {
+	                'Authorization': 'Token ' + localStorage.token
+	            },
+	            success: function (res) {
+	                this.setState({ uploadMessage: 'Upload successful: ' + (res.filename || '') });
+	            }.bind(this),
+	            error: function (xhr) {
+	                var msg = 'Upload failed.';
+	                try {
+	                    msg = xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : msg;
+	                } catch (e) {}
+	                this.setState({ uploadMessage: msg });
+	            }.bind(this)
+	        });
 	    }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(279)))
@@ -37145,11 +37196,14 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = {
 	    login: function (username, pass, cb) {
+	        console.debug('auth.login called', { username: username, passLen: pass && pass.length });
 	        if (localStorage.token) {
+	            console.debug('auth.login: already have token');
 	            if (cb) cb(true);
 	            return;
 	        }
 	        this.getToken(username, pass, res => {
+	            console.debug('auth.getToken callback', res);
 	            if (res.authenticated) {
 	                localStorage.token = res.token;
 	                if (cb) cb(true);
@@ -37168,6 +37222,7 @@
 	    },
 
 	    getToken: function (username, pass, cb) {
+	        console.debug('auth.getToken sending request');
 	        $.ajax({
 	            type: 'POST',
 	            url: '/api/obtain-auth-token/',
@@ -37176,12 +37231,14 @@
 	                password: pass
 	            },
 	            success: function (res) {
+	                console.debug('auth.getToken success', res);
 	                cb({
 	                    authenticated: true,
 	                    token: res.token
 	                });
 	            },
 	            error: (xhr, status, err) => {
+	                console.debug('auth.getToken error', status, err, xhr && xhr.responseText);
 	                cb({
 	                    authenticated: false
 	                });
@@ -37214,8 +37271,12 @@
 	    handleSubmit: function (e) {
 	        e.preventDefault();
 
+	        console.debug('login.handleSubmit called');
+
 	        var username = this.refs.username.value;
 	        var pass = this.refs.pass.value;
+
+	        console.debug('login credentials', { username: username, pass: pass && pass.length });
 
 	        auth.login(username, pass, loggedIn => {
 	            if (loggedIn) {

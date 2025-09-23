@@ -1,0 +1,87 @@
+Watching for file changes with StatReloader
+[22/Sep/2025 23:19:34] "HEAD / HTTP/1.1" 200 0
+[22/Sep/2025 23:22:05] "GET / HTTP/1.1" 200 185
+[22/Sep/2025 23:22:05] "GET /static/bundles/main.js HTTP/1.1" 200 1180271
+[22/Sep/2025 23:23:58] "HEAD /static/bundles/main.js HTTP/1.1" 200 0
+[22/Sep/2025 23:25:45] "GET / HTTP/1.1" 200 185
+[22/Sep/2025 23:25:45] "GET /static/bundles/main.js HTTP/1.1" 200 1180271
+/Users/hetingyue/Desktop/UoM/SWEN90014/react_django.nosync/django_react_demo/django_react_auth/urls.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 22, 2025 - 23:19:24
+Django version 4.2.24, using settings 'django_react_auth.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+[22/Sep/2025 23:28:07] "HEAD / HTTP/1.1" 302 0
+[22/Sep/2025 23:28:14] "GET / HTTP/1.1" 302 0
+[22/Sep/2025 23:28:14] "GET /app/ HTTP/1.1" 200 478
+[22/Sep/2025 23:28:14] "GET /static/bundles/main.js HTTP/1.1" 304 0
+[22/Sep/2025 23:30:10] "GET /app/login/ HTTP/1.1" 200 478
+[22/Sep/2025 23:30:10] "GET /static/bundles/main.js HTTP/1.1" 304 0
+/Users/hetingyue/Desktop/UoM/SWEN90014/react_django.nosync/django_react_demo/api/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 22, 2025 - 23:27:04
+Django version 4.2.24, using settings 'django_react_auth.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+/Users/hetingyue/Desktop/UoM/SWEN90014/react_django.nosync/django_react_demo/api/urls.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 22, 2025 - 23:38:37
+Django version 4.2.24, using settings 'django_react_auth.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Unauthorized: /api/upload-file/
+[22/Sep/2025 23:39:03] "HEAD /api/upload-file/ HTTP/1.1" 401 0
+[22/Sep/2025 23:40:03] "GET /app/login/ HTTP/1.1" 200 478
+[22/Sep/2025 23:40:03] "GET /static/bundles/main.js HTTP/1.1" 304 0
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:40:13] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:40:14] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:40:17] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:40:20] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:41:57] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:42:50] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+[22/Sep/2025 23:43:21] "GET /app/login/ HTTP/1.1" 200 478
+[22/Sep/2025 23:43:21] "GET /static/bundles/main.js HTTP/1.1" 304 0
+[22/Sep/2025 23:48:51] "HEAD / HTTP/1.1" 302 0
+[22/Sep/2025 23:48:57] "HEAD /static/bundles/main.js HTTP/1.1" 200 0
+[22/Sep/2025 23:48:57] "HEAD /app/ HTTP/1.1" 200 0
+[22/Sep/2025 23:49:32] "GET /app/%EF%BC%8C%E6%89%93%E5%BC%80 HTTP/1.1" 200 478
+[22/Sep/2025 23:49:33] "GET /static/bundles/main.js HTTP/1.1" 200 1182175
+[22/Sep/2025 23:50:04] "GET /app/ HTTP/1.1" 200 478
+[22/Sep/2025 23:50:04] "GET /static/bundles/main.js HTTP/1.1" 304 0
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:50:14] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:50:16] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[22/Sep/2025 23:51:55] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2438
+[22/Sep/2025 23:52:07] "GET /app/login/ HTTP/1.1" 200 478
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[22/Sep/2025 23:52:07] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2438
+[22/Sep/2025 23:52:07,510] - Broken pipe from ('127.0.0.1', 49673)
+[22/Sep/2025 23:52:07] "GET /static/bundles/main.js HTTP/1.1" 200 1182758
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:52:19] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+Bad Request: /api/obtain-auth-token/
+[22/Sep/2025 23:58:06] "POST /api/obtain-auth-token/ HTTP/1.1" 400 68
+[23/Sep/2025 00:09:04] "GET /app/login/ HTTP/1.1" 200 478
+[23/Sep/2025 00:09:04] "GET /static/bundles/main.js HTTP/1.1" 304 0
+[23/Sep/2025 00:09:13] "POST /api/obtain-auth-token/ HTTP/1.1" 200 52
+[23/Sep/2025 00:09:14] "GET /api/users/i/ HTTP/1.1" 200 18
