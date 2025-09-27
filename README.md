@@ -11,7 +11,7 @@ Single-page data-cleaning demo that pairs a Django REST backend with a legacy Re
 ## Prerequisites
 - Python 3.10+
 - Node.js 18+ and npm
-- Access to an OpenAI-compatible API (e.g. OpenAI, 火山引擎方舟 Ark) with model + key.
+- Access to an OpenAI-compatible API (e.g. OpenAI, Volcano Engine Ark) with model + key.
 
 ## Backend Setup
 ```bash
@@ -27,12 +27,12 @@ Set these environment variables **before** running the server:
 
 | Variable | Description |
 | --- | --- |
-| `OPENAI_API_KEY` | API key or token. Ark 用户可直接填 `ARK_API_KEY`. |
-| `OPENAI_BASE_URL` | OpenAI 兼容接口根地址，如 `https://api.openai.com/v1` 或 `https://ark.cn-beijing.volces.com/api/v3`. |
-| `LLM_MODEL` | 目标模型或接入点 ID（Ark 为 `ep-xxxx` 或 `deepseek-...` 等）。 |
-| `LLM_PROVIDER` *(optional)* | 默认为 `openai`; 仅用于记录当前使用方。 |
+| `OPENAI_API_KEY` | API key or token. Ark users can reuse `ARK_API_KEY`. |
+| `OPENAI_BASE_URL` | Base URL of the OpenAI-compatible endpoint, e.g. `https://api.openai.com/v1` or `https://ark.cn-beijing.volces.com/api/v3`. |
+| `LLM_MODEL` | Target model or endpoint ID (Ark often uses IDs like `ep-xxxx` or names such as `deepseek-...`). |
+| `LLM_PROVIDER` *(optional)* | Defaults to `openai`; purely informational. |
 
-Example (Ark 深度思考模型)：
+Example (Ark DeepSeek model):
 ```bash
 export OPENAI_API_KEY="<your-ark-api-key>"
 export OPENAI_BASE_URL="https://ark.cn-beijing.volces.com/api/v3"
