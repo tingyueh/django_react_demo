@@ -19,24 +19,24 @@ Environment setup (backend)
 ---------------------------
 1. Create and activate a virtual environment (recommended):
 
-	python3 -m venv .venv
-	source .venv/bin/activate
+	`python3 -m venv .venv`
+	`source .venv/bin/activate`
 
 2. Install Python dependencies:
 
-	pip install -r requirements.txt
+	`pip install -r requirements.txt`
 
 3. Run database migrations:
 
-	python manage.py migrate --settings=django_react_auth.settings
+	`python manage.py migrate --settings=django_react_auth.settings`
 
 4. Create a superuser (optional):
 
-	python manage.py createsuperuser --settings=django_react_auth.settings
+	`python manage.py createsuperuser --settings=django_react_auth.settings`
 
 5. Run the development server:
 
-	python manage.py runserver --settings=django_react_auth.settings
+	`python manage.py runserver --settings=django_react_auth.settings`
 
 	The site will be available at: http://127.0.0.1:8000/
 
@@ -46,11 +46,11 @@ This project uses a webpack build that outputs to `assets/bundles/main.js`. If y
 
 1. Install node dependencies (one-time):
 
-	npm install
+	`npm install`
 
 2. Build the bundle:
 
-	npm run build
+	`npm run build`
 
 3. The built file will be written to `assets/bundles/main.js` and served by Django's static files in development.
 
@@ -66,13 +66,13 @@ If the page is blank after loading:
 1. Open browser DevTools (Console) and look for JavaScript errors. Copy paste the errors here when asking for help.
 2. Confirm the static bundle is served:
 
-	curl -I http://127.0.0.1:8000/static/bundles/main.js
+	`curl -I http://127.0.0.1:8000/static/bundles/main.js`
 
 	Expect HTTP 200 and Content-Type: application/javascript
 3. Confirm the index loads and redirects as expected:
 
-	curl -I http://127.0.0.1:8000/
-	curl -I http://127.0.0.1:8000/app/
+	`curl -I http://127.0.0.1:8000/`
+	`curl -I http://127.0.0.1:8000/app/`
 
 4. If the bundle loads but the app does not mount, check the browser console for exceptions and verify `document.getElementById('app')` exists in the served `index.html`.
 
