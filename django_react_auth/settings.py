@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     #internal apps
-    'api'
+    'api',
+    'llm',
 ]
+
 
 MIDDLEWARE = [
     # corsheaders should be high in the middleware order
@@ -134,7 +136,7 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+# For LLM functionaity, we need to add the assets dir
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
@@ -145,3 +147,16 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Use BigAutoField by default for new models (Django 3.2+ recommended default)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Media files (for uploaded and processed files)
+# add the setting for llm functionality
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Development CORS
+CORS_ALLOW_ALL_ORIGINS = True
+
+# LLM settings
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")  
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")  # 本地跑 vLLM 可以随便写
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")  
+LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
